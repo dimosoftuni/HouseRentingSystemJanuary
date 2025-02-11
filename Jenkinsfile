@@ -1,14 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage('Build Project') {
+        stage('Restore Dependencies') {
             steps {
-                bat 'dotnet build'
+                bat 'dotnet restore'
             }
         }
-       stage('Run dotnet tests') {
+        stage('Build Project') {
             steps {
-                bat 'dotnet test'
+                bat 'dotnet build --configuration Release'
+            }
+        }
+        stage('Run dotnet tests') {
+            steps {
+                bat 'dotnet test --logger "trx;LogFileName=test-results.trx"'
             }
         }
     }
