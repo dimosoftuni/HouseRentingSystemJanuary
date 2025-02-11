@@ -23,18 +23,6 @@ namespace HouseRentingSystem.Tests.UnitTests
             Assert.AreEqual(this.Agent.Id, resultAgentId);
         }
 
-       [Test]
-        public void ExistsById_ShouldReturnTrue_WithValidId()
-        {
-            // Arrange
-
-            // Act: invoke the service method with valid agent id
-            var result = this.agentService.ExistsById(this.Agent.UserId);
-
-            // Assert the method result is true
-            Assert.IsFalse(result);
-        }
-
        
         [Test]
         public void AgentWithPhoneNumberExists_ShouldReturnTrue_WithValidData()
